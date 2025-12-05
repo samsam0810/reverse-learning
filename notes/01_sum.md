@@ -16,7 +16,9 @@ sum.c 這份程式讓使用者輸入數字n, 之後addUp函式會將1+2+..+n算�
 ```
 
 ## 分析組合語言
+```
 在'less'中輸入'/addUp'跳到'addUp'函式的入口後開始分析組合語言
+```
 
 ## addUp組合語言完整拆解
 ```asm
@@ -46,7 +48,9 @@ cmp dst src // 計算dst-src後更新flags
 ```
 
 ### 2.jle跳轉
+```
 jle 跳轉條件: ZF = 1 or SF != OF (i == n or i < n)
+```
 
 ### 3.x86-64 Linux 32位元呼叫慣例
 ```
