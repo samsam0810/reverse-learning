@@ -1,15 +1,19 @@
 # sum.c 逆向分析
 
 ## 程式功能說明
+```
 sum.c 這份程式讓使用者輸入數字n, 之後addUp函式會將1+2+..+n算出來的值傳給sum, 最後印出來加總的值.
 
 **addUp 函式核心邏輯 **
     addUp 函式利用for loop 將總和從1加到參數n, 最後回傳總和.
+```
 
 ## 編譯與反組譯流程
+```
 將sum.c 利用gcc sum.c -o sum 編譯成可執行檔
 利用objdump 將sum 反組譯成sum.asm
 然後輸入objdump -d sum | less 看sum這份檔案的組合語言(AT&T格式)
+```
 
 ## 分析組合語言
 在'less'中輸入'/addUp'跳到'addUp'函式的入口後開始分析組合語言
@@ -36,12 +40,16 @@ ret //函式回傳
 ## 技術總結
 
 ### 1.AT&T 語法操作順序
+```
 mov src dst //來源在前 目的在後
 cmp dst src // 計算dst-src後更新flags
+```
 
 ### 2.jle跳轉
 jle 跳轉條件: ZF = 1 or SF != OF (i == n or i < n)
 
 ### 3.x86-64 Linux 32位元呼叫慣例
+```
 第一參數: %edi (32-bits)
 整數傳回值: %eax (32-bits)
+```
